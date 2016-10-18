@@ -1,0 +1,12 @@
+{
+  "name": "limijiaoyin-octopus-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^1.6.3",
+    "object-path": "^0.11.2"
+  }
+}
