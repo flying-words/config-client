@@ -22,9 +22,8 @@ hello:
 ```javascript
 var config = require('limijiaoyin-octopus-client');
 
-config.load(host, token, env).then(() => {
-  console.log(config.get('hello.world')); // load 方法成功返回之后可以使用 get 方法获取数据
-});
+config.loadSync(host, token, env);
+console.log(config.get('hello.world')); // loadSync 方法成功返回之后可以使用 get 方法获取数据
 ```
 
 程序成功执行之后应该输出 "limijiaoyin"
@@ -37,6 +36,12 @@ __load(host, token, env)__ 加载配置，是一个基于 Promise 的异步方�
 * token: config-server 发放的 token
 * env: 要加载的配置版本
 
+**loadSync(host, token, env)** 加载配置，是一个同步方法，参数同上。
+
 __get(path)__ 获取配置数据，是一个同步方法：
 
 * path: 配置属性的访问路径，使用 "." 分隔，比如："husky.trello"
+
+**mock(config)** 使用本地数据假冒配置数据，是一个同步方法，主要用于测试：
+
+* config: 配置数据对象
