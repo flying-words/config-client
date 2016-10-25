@@ -12,6 +12,7 @@
     "mockery": "^2.0.0",
     "node-fetch": "^1.6.3",
     "object-path": "^0.11.2",
+    "pre-commit": "^1.1.3",
     "sync-request": "^3.0.1"
   },
   "devDependencies": {
