@@ -5,7 +5,7 @@ limijiaoyin config-servers‘ Node.js client library
 ### Install
 
 ```bash
-$ npm install --save git+ssh://git@git.limijiaoyin.com:2222/limijiaoyin/limijiaoyin-octopus-client.git
+$ npm install --save git+https://git.limijiaoyin.com/limijiaoyin/limijiaoyin-octopus-client.git
 ```
 
 ### Usage
