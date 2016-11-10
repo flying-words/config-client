@@ -23,7 +23,7 @@ function loadSync(host, token, env) {
 }
 
 function mock(_data) {
-    data = data;
+    data = _data;
     loaded = true;
 }
 

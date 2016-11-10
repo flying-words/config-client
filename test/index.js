@@ -68,7 +68,7 @@ describe('config', () => {
     			}
     		});
 
-    		assert.equal(config.get('mysql.host', '192.168.1.4'));
+    		assert.equal(config.get('mysql.host'), '192.168.1.4');
     	});
     });
 });
