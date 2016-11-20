@@ -8,6 +8,7 @@ var loaded = false;
 var data;
 
 function load(host, token, env) {
+    env = env || "application";
     console.log('loading config data')
     return loaderFactory.getAsyncLoader().load(host, token, env).then(_data => {
         loaded = true;
@@ -17,6 +18,7 @@ function load(host, token, env) {
 }
 
 function loadSync(host, token, env) {
+    env = env || "application";
     data = loaderFactory.getSyncLoader().load(host, token, env);
     loaded = true;
     return data;
