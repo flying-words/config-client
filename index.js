@@ -37,9 +37,23 @@ function get(path) {
     return objectPath.get(data, path);
 }
 
+function reset() {
+	data = null;
+	loaded = false;
+}
+
+function _status() {
+	return {
+		data,
+		loaded
+	}
+}
+
 module.exports = {
     mock,
     load,
     loadSync,
-    get
+	reset,
+    get,
+	_status
 };

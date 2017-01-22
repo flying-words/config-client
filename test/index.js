@@ -71,4 +71,19 @@ describe('config', () => {
     		assert.equal(config.get('mysql.host'), '192.168.1.4');
     	});
     });
+
+	describe('#reset', () => {
+		it('should reset data and status', () => {
+			config.mock({
+				hello: 'world'
+			});
+
+			config.reset();
+
+			assert.deepStrictEqual(config._status(), {
+				data: null,
+				loaded: false
+			});
+		});
+	});
 });
