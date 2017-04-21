@@ -20,11 +20,19 @@ describe('config', () => {
 
 
         configLoaderFactory._setSyncLoader({
-            load: () => configData
+            load: () => {
+				return {
+					revision: 1,
+					config: configData
+				}
+			}
         });
 
         configLoaderFactory._setAsyncLoader({
-            load: () => Promise.resolve(configData)
+            load: () => Promise.resolve({
+				revision: 1,
+				config: configData
+			})
         });
     });
 
@@ -47,17 +55,25 @@ describe('config', () => {
         assert.equal(config.get('hello'), 'world');
     });
 
-    it('should support load data async', done => {
-        config.load().then(() => {
-            assert.equal(config.get('hello'), 'world');
-            done();
-        }).catch(done);
-    });
-
     it('should support get property by path', () => {
         config.loadSync();
         assert.equal(config.get('mongodb.port'), 27017);
     });
+
+	it('should emit change event if data changed', done => {
+		configLoaderFactory._setAsyncLoader({
+            load: () => Promise.resolve({
+				revision: 2,
+				config: {hello: 'world'}
+			})
+        });
+
+		config.emitter.on('change', () => {
+			done();
+		});
+
+		config._refreshConfigIfNeed();
+	});
 
     describe('#mock', () => {
     	it('should support mock local data as config', () => {
