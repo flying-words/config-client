@@ -18,7 +18,7 @@ var internal = {
 
 function _loadAsync(host, token, env) {
     env = env || "application";
-    console.log('loading config data')
+    debug('loading config data');
     return loaderFactory.getAsyncLoader().load(host, token, env);
 }
 
