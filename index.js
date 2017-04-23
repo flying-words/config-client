@@ -55,10 +55,13 @@ function watch() {
 }
 
 function mock(config) {
-    data = {
-        config
-    };
-    loaded = true;
+    if (!data) {
+        data = { config };
+        loaded = true;
+    } else {
+        data.config = Object.assign({}, data.config, config);
+        loaded = true;
+    }
 }
 
 function get(path) {
