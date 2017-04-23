@@ -66,7 +66,8 @@ function mock(config) {
 
 function get(path) {
     if (!loaded) {
-        throw new Error('Config data has not beed loaded');
+        // throw new Error('Config data has not beed loaded');
+        return {};
     }
 
     return objectPath.get(data.config, path);
