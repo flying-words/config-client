@@ -2,10 +2,11 @@ var fetch = require('node-fetch');
 var request = require('sync-request');
 
 var syncLoader, asyncLoader;
+const SCHEME = 'https';
 
 class DefaultSyncLoader {
     load(host, token, env) {
-        var res = request('GET', `http://${host}/config/${env}`, {
+        var res = request('GET', `${SCHEME}://${host}/config/${env}`, {
             'headers': {
                 'X-CLIENT-TOKEN': token
             }
@@ -21,7 +22,7 @@ class DefaultSyncLoader {
 
 class DefaultAsyncLoader {
     load(host, token, env) {
-        return fetch(`http://${host}/config/${env}`, {
+        return fetch(`${SCHEME}://${host}/config/${env}`, {
             headers: {
                 'X-CLIENT-TOKEN': token
             }
