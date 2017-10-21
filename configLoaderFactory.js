@@ -2,7 +2,7 @@ var fetch = require('node-fetch');
 var request = require('sync-request');
 
 var syncLoader, asyncLoader;
-const SCHEME = 'https';
+const SCHEME = 'http';
 
 class DefaultSyncLoader {
     load(host, token, env) {
